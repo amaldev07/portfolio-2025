@@ -11,12 +11,26 @@
 
  
 
-<section class="py-20">
-    <div class="container mx-auto text-center px-6">
+<section class="py-20 relative overflow-hidden">
+    <div class="container mx-auto text-center px-6 relative z-10">
         <h1 class="text-4xl md:text-6xl font-bold">Hi, I'm Amaldev PS</h1>
         <p class="mt-4 text-xl md:text-2xl">I build intuitive and performant web applications using Angular & React.</p>
         <a href="#contact" class="mt-8 inline-block bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg">Let's Connect</a>
     </div>
+    <!-- Cool SVG Decoration -->
+    <svg class="absolute left-1/2 top-0 -translate-x-1/2 -z-0 opacity-60" width="700" height="320" viewBox="0 0 700 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="introGradient" x1="0" y1="0" x2="700" y2="320" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#f472b6"/>
+          <stop offset="0.5" stop-color="#a78bfa"/>
+          <stop offset="1" stop-color="#6366f1"/>
+        </linearGradient>
+      </defs>
+      <path d="M0 160 Q 175 0 350 160 T 700 160 Q 525 320 350 160 T 0 160 Z" fill="url(#introGradient)"/>
+      <circle cx="120" cy="60" r="40" fill="#f472b6" fill-opacity="0.3"/>
+      <circle cx="600" cy="100" r="60" fill="#6366f1" fill-opacity="0.2"/>
+      <circle cx="350" cy="250" r="80" fill="#a78bfa" fill-opacity="0.15"/>
+    </svg>
 </section>
 
 <!-- About Me Section -->
@@ -55,7 +69,7 @@
                 <span>NgRx & Redux</span>
             </span>
             <span class="flex items-center bg-gradient-to-r from-pink-500 to-purple-500 text-white py-2 px-3 rounded shadow justify-center">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS" class="w-8 h-8 mr-2"/>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="w-8 h-8 mr-2"/>
                 <span>Tailwind CSS</span>
             </span>
             <span class="flex items-center bg-gradient-to-r from-pink-500 to-purple-500 text-white py-2 px-3 rounded shadow justify-center">
