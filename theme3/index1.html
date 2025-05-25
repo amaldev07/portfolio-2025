@@ -156,6 +156,24 @@
                     <span>Highcharts</span>
                 </span>
             </div>
+            <style>
+                .skill-card-hover {
+                    transition: transform 0.28s cubic-bezier(.4,1.1,.5,1), box-shadow 0.28s cubic-bezier(.4,1.1,.5,1), border-color 0.28s cubic-bezier(.4,1.1,.5,1);
+                }
+                .skill-card-hover:hover {
+                    transform: translateY(-4px) scale(1.035);
+                    box-shadow: 0 6px 18px 0 rgba(236,72,153,0.18), 0 2px 8px 0 rgba(99,102,241,0.13);
+                    border-color: #f472b6 !important;
+                    z-index: 2;
+                }
+            </style>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.querySelectorAll('.grid.grid-cols-2.md\\:grid-cols-4 > span, .grid.grid-cols-2.md\\:grid-cols-4 > div').forEach(function(card) {
+                        card.classList.add('skill-card-hover');
+                    });
+                });
+            </script>
             <p class="mt-6 text-sm text-purple-200 text-center">* Note: Only core Java for backend utilities and
                 tooling, not for enterprise backend development.</p>
         </div>
