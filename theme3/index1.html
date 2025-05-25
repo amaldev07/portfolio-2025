@@ -320,6 +320,22 @@
         <p>&copy; 2025 Amaldev PS. All rights reserved.</p>
     </footer>
 
+    <!-- Simple AI Chatbot Button & Widget -->
+    <button id="ai-chatbot-toggle" class="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600 text-white px-4 py-2 rounded-full shadow-lg hover:scale-105 transition-transform focus:outline-none">
+      🤖 AI Chat
+    </button>
+    <div id="ai-chatbot-widget" class="fixed bottom-24 right-8 z-50 w-80 max-w-full bg-white bg-opacity-95 rounded-xl shadow-2xl p-4 hidden flex-col" style="backdrop-filter: blur(8px);">
+      <div class="flex justify-between items-center mb-2">
+        <span class="font-bold text-purple-700">AI Assistant</span>
+        <button id="ai-chatbot-close" class="text-gray-400 hover:text-pink-500">✖</button>
+      </div>
+      <div id="ai-chatbot-messages" class="h-40 overflow-y-auto text-sm mb-2 bg-gray-50 rounded p-2 border border-gray-200"></div>
+      <form id="ai-chatbot-form" class="flex gap-2">
+        <input id="ai-chatbot-input" type="text" class="flex-1 rounded border border-gray-300 px-2 py-1 focus:outline-none focus:border-pink-400" placeholder="Ask me anything..." autocomplete="off" />
+        <button type="submit" class="bg-gradient-to-r from-pink-500 to-indigo-500 text-white px-3 py-1 rounded">Send</button>
+      </form>
+    </div>
+
     <div id="greeting-message" class="fixed top-6 right-8 z-50 text-xs font-normal text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600 px-2 py-1 rounded-full shadow-lg backdrop-blur-md select-none" style="display:none;"></div>
     <script>
       function getGreeting() {
@@ -336,6 +352,42 @@
           el.textContent = greeting;
           el.style.display = 'block';
         }
+
+        // AI Chatbot logic
+        const toggleBtn = document.getElementById('ai-chatbot-toggle');
+        const widget = document.getElementById('ai-chatbot-widget');
+        const closeBtn = document.getElementById('ai-chatbot-close');
+        const form = document.getElementById('ai-chatbot-form');
+        const input = document.getElementById('ai-chatbot-input');
+        const messages = document.getElementById('ai-chatbot-messages');
+
+        toggleBtn.addEventListener('click', () => {
+          widget.classList.toggle('hidden');
+          input.focus();
+        });
+        closeBtn.addEventListener('click', () => widget.classList.add('hidden'));
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const userMsg = input.value.trim();
+          if (!userMsg) return;
+          messages.innerHTML += `<div class='mb-1'><b>You:</b> ${userMsg}</div>`;
+          input.value = '';
+          // Simple AI: hardcoded responses
+          let aiReply = "Sorry, I can only answer basic questions right now.";
+          if (/hello|hi|hey/i.test(userMsg)) aiReply = "Hello! How can I help you today?";
+          else if (/your name/i.test(userMsg)) aiReply = "I'm an AI assistant for Amaldev";
+          else if (/skills|expertise/i.test(userMsg)) aiReply = "Amaldev specializes in Angular, React, TypeScript, and modern frontend engineering.";
+          else if (/contact|email|phone/i.test(userMsg)) aiReply = "You can contact Amaldev at Email:amaldev.psn@gmail.com. Phone:+91-7594072480";
+          else if (/blog|articles/i.test(userMsg)) aiReply = "Check out the latest blogs on Amaldev's Medium profile!";
+          else if (/portfolio|projects/i.test(userMsg)) aiReply = "Visit the Projects section to see Amaldev's work!";
+          else if (/experience|work/i.test(userMsg)) aiReply = "Amaldev has over 10 years of experience in frontend development.";
+          else if (/tools|technologies/i.test(userMsg)) aiReply = "Amaldev uses Angular, React, TypeScript, Tailwind CSS, and more.";
+          else if (/project|portfolio/i.test(userMsg)) aiReply = "Check out the Projects and Blogs sections for Amaldev's work!";
+          setTimeout(() => {
+            messages.innerHTML += `<div class='mb-2 text-purple-700'><b>AI:</b> ${aiReply}</div>`;
+            messages.scrollTop = messages.scrollHeight;
+          }, 400);
+        });
       });
     </script>
 </body>
