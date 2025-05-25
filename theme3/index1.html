@@ -320,6 +320,24 @@
         <p>&copy; 2025 Amaldev PS. All rights reserved.</p>
     </footer>
 
+    <div id="greeting-message" class="fixed top-6 right-8 z-50 text-xs font-normal text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600 px-2 py-1 rounded-full shadow-lg backdrop-blur-md select-none" style="display:none;"></div>
+    <script>
+      function getGreeting() {
+        const hour = new Date().getHours();
+        if (hour < 5) return "Good Night";
+        if (hour < 12) return "Good Morning";
+        if (hour < 18) return "Good Afternoon";
+        return "Good Evening";
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        const greeting = getGreeting();
+        const el = document.getElementById('greeting-message');
+        if (el) {
+          el.textContent = greeting;
+          el.style.display = 'block';
+        }
+      });
+    </script>
 </body>
 
 </html>
