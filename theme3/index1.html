@@ -373,7 +373,7 @@
           messages.innerHTML += `<div class='mb-1'><b>You:</b> ${userMsg}</div>`;
           input.value = '';
           // Simple AI: hardcoded responses
-          let aiReply = "Sorry, I can only answer basic questions right now.";
+          let aiReply = "Sorry, I can only answer basic questions like contact details, skill sets etc of Amaldev right now.";
           if (/hello|hi|hey/i.test(userMsg)) aiReply = "Hello! How can I help you today?";
           else if (/your name/i.test(userMsg)) aiReply = "I'm an AI assistant for Amaldev";
           else if (/skills|expertise/i.test(userMsg)) aiReply = "Amaldev specializes in Angular, React, TypeScript, and modern frontend engineering.";
